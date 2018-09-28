@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Transposition Cipher Using Columnar Transposition</title>
+	<script type="text/javascript" src="columnarCipher.js"></script>
+	<link rel="stylesheet" type="text/css" href="1.css">
+</head>
+<body>
+
+	<p>Plaintext<br/><br>
+		<textarea id="plainText" name="plainText" rows="1" cols="50" placeholder="Enter the plaintext"></textarea>
+	</p>
+	
+	<p>
+		Key = <input type="text" name="key" id="key" size="10" placeholder="zebras">
+		Pad = <input type="text" name="padChar" id="pc"	size="10" placeholder="x">
+	</p>
+
+	<p>
+		<input type="button" name="btnEn" value="Encrypt" onclick="handleEncrypt()">
+		<input type="button" name="btnDe" value="Decrypt" onclick="handleDecrypt()">
+	</p>
+
+	<p>Cipher Text<br/><br>
+		<textarea id="cipherText" name="cipherText" rows="1" cols="50" placeholder="Enter the cipher text"></textarea>
+	</p>
+</body>
+</html>
