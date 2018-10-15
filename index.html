@@ -6,23 +6,19 @@
 	<link rel="stylesheet" type="text/css" href="1.css">
 </head>
 <body>
-
-	<p>Plaintext<br/><br>
-		<textarea id="plainText" name="plainText" rows="1" cols="50" placeholder="Enter the plaintext"></textarea>
+	<p>Plaintext<br />
+	<textarea id="p" name="p" rows="4" cols="50">attack at dawn</textarea>
 	</p>
-	
 	<p>
-		Key = <input type="text" name="key" id="key" size="10" placeholder="zebras">
-		Pad = <input type="text" name="padChar" id="pc"	size="10" placeholder="x">
+	    keyword = <input id="key" name="key" size="10" value="zebra" type="text" />
+	    pad character = <input id="pc" name="pc" size="1" value="x" type="text" />
 	</p>
-
 	<p>
-		<input type="button" name="btnEn" value="Encrypt" onclick="handleEncrypt()">
-		<input type="button" name="btnDe" value="Decrypt" onclick="handleDecrypt()">
+	    <input type="button" name="btnEn" value="v Encrypt v" onclick="handleEncrypt()" />
+	    <input type="button" name="btnDe" value="^ Decrypt ^" onclick="handleDecrypt()" />
 	</p>
-
-	<p>Cipher Text<br/><br>
-		<textarea id="cipherText" name="cipherText" rows="1" cols="50" placeholder="Enter the cipher text"></textarea>
+	<p>Ciphertext<br />
+	    <textarea id="c" name="c" rows="4" cols="50"></textarea>
 	</p>
 </body>
 </html>
