@@ -3,12 +3,90 @@
 <head>
 	<title>Transposition Cipher Using Columnar Transposition</title>
 	<script type="text/javascript" src="columnarCipher.js"></script>
-	<link rel="stylesheet" type="text/css" href="1.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+	<script >
+		$(document).ready(function () {
+		    // encrypt listener
+		    $('#encryptBtn').click(function () {
+		        var t = new Date();
+		        var ciphertext = Aes.Ctr.encrypt($('#plaintext').val(), $('#password').val(), 256);
+		        $('#encrypt-time').html(((new Date() - t)) + 'ms');
+		        $('#cipher').val(ciphertext);
+		    });
+
+		    // decrypt listener
+		    $('#decryptBtn').click(function () {
+		        var t = new Date();
+		        var plain = Aes.Ctr.decrypt($('#cipher').val(), $('#password').val(), 256);
+		        $('#decrypt-time').html(((new Date() - t)) + 'ms');
+		        $('#plaintext').val(plain);
+		    });
+
+
+		    $('#plaintextDiv .clear').click(function () {
+		        $('#plaintext').val("");
+		    });
+		    $('#cipherDiv .clear').click(function () {
+		        $('#cipher').val("");
+		    });
+
+
+		});
+	</script>
 </head>
 <body>
-	<p>Plaintext<br />
-	<textarea id="p" name="p" rows="4" cols="50">attack at dawn</textarea>
-	</p>
+	<div class="container">
+	     <h1>Coloumnar Transposition</h1> 
+	</div>
+	<div id="plaintextDiv" class="col-md-6">
+	    <div class="panel panel-default">
+	        <div class="panel-heading">
+	            <div class="row">
+	                 <h3 class="panel-title text-center">Plain text</h3>
+
+	            </div>
+	            <div class="row text-center">
+	                <div class="btn-group" role="group" aria-label="...">
+	                    <button class="clear btn btn-default">Clear</button>
+	                    <button class="copy btn btn-default">Copy</button>
+	                    <button class="paste btn btn-default">Paste</button>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="panel-body">
+	            <textarea id="p" class="form-control" rows="10">Hello World!</textarea>
+	        </div>
+	    </div>
+	</div>
+	<div id="cipherDiv" class="col-md-1 text-center">
+	    <div class="row">
+	        <button id="encryptBtn" class="btn btn-primary ">Encrypt <i class="glyphicon glyphicon-triangle-right"></i></button>
+	    </div>
+	    <div class="row">
+	        <button id="decryptBtn" class="btn btn-primary "><i class="glyphicon glyphicon-triangle-left"></i> Decrypt</button>
+	    </div>
+	</div>
+	<div id="cipherDiv" class="col-md-5">
+	    <div class="panel panel-default">
+	        <div class="panel-heading">
+	            <div class="row">
+	                 <h3 class="panel-title text-center">Cipher</h3>
+
+	            </div>
+	            <div class="row text-center">
+	                <div class="btn-group" role="group" aria-label="...">
+	                    <button class="clear btn btn-default">Clear</button>
+	                    <button class="copy btn btn-default">Copy</button>
+	                    <button class="paste btn btn-default">Paste</button>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="panel-body">
+	            <textarea id="c" class="form-control" rows="10"></textarea>
+	        </div>
+	    </div>
+	</div>
 	<p>
 	    keyword = <input id="key" name="key" size="10" value="zebra" type="text" />
 	    pad character = <input id="pc" name="pc" size="1" value="x" type="text" />
@@ -16,9 +94,6 @@
 	<p>
 	    <input type="button" name="btnEn" value="v Encrypt v" onclick="handleEncrypt()" />
 	    <input type="button" name="btnDe" value="^ Decrypt ^" onclick="handleDecrypt()" />
-	</p>
-	<p>Ciphertext<br />
-	    <textarea id="c" name="c" rows="4" cols="50"></textarea>
 	</p>
 </body>
 </html>
